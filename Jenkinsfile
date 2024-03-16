@@ -8,7 +8,6 @@ pipeline {
         TAG_IMAGE_PROD = 'prod'
     }
     stages { 
-            agent any 
             steps {
                 sh 'docker build -t ${NAME_IMAGE_DEV} .'    
             }
