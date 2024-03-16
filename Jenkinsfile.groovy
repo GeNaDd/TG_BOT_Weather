@@ -11,11 +11,11 @@ pipeline {
             }
         }
     }
-    stages {
-        stage('build dockerimage2') {
-            steps {
-                echo "Hello World!"
-            }
-        }
-    }
+     stages {
+         stage('build dockerimage2') {
+             steps {
+                 echo "Hello World!"
+             }
+         }
+     }
 }
