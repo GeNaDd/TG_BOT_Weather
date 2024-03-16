@@ -7,6 +7,15 @@ pipeline {
         NAME_CONTAINER_DEV = 'tgbotweatherGenDevBY_dev'
         TAG_IMAGE_PROD = 'prod'
     }
+    stages {
+
+        stage('build devimage') { 
+            agent any 
+            
+            steps {
+                sh 'docker build -t ${NAME_IMAGE_DEV} .'    
+            }
+        }
       stage('push devimage') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
