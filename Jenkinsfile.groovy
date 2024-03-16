@@ -29,10 +29,5 @@ pipeline {
                 echo "Hello World!"
             }
         }
-        post {
-            always {
-                sh 'docker logout'
-            }
-        }
     }
 }
