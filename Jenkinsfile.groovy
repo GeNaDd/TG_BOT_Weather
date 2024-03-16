@@ -4,7 +4,7 @@ pipeline {
         NAME_PROJECT = 'tgbotweatherGenDevBY'
         DOCKERHUB_CREDENTIALS = credentials('dockerhubjenkins')
         NAME_IMAGE_DEV = 'gendevbydocker/gendevby_tg_bot_weather:latest '
-        NAME_CONTAINER_DEV = 'test_gendevby_tg_bot_weather_dev'
+        NAME_CONTAINER_DEV = 'gendevby_tg_bot_weather_dev'
         TAG_IMAGE_PROD = 'TEST'
     }
     stages {
@@ -30,19 +30,6 @@ pipeline {
                     dir("${env.WORKSPACE}@tmp") {
                         deleteDir()
                     }
-            }
-        }
-        stage ('Test DockerIMAGE AND DockerPUSH') {
-            steps{
-                script {
-                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                     sh 'docker pull ${NAME_IMAGE_DEV}'
-                     docker.image("${NAME_IMAGE_DEV}").tag("${TAG_IMAGE_PROD}")
-                     docker.image("${NAME_IMAGE_DEV}").push("${TAG_IMAGE_PROD}")
- 
-                
-                     sh 'docker system prune -af'
-                }
             }
         }
     }
