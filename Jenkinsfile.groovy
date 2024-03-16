@@ -22,6 +22,12 @@ pipeline {
             steps {
                 echo "===== Docker Pushing ====="
                 sh 'docker push ${NAME_IMAGE_DEV}'
+                sh 'docker rmi ${NAME_IMAGE_DEV}'
+                //Удаляем рабочие директории проекта
+                cleanWs()
+                    dir("${env.WORKSPACE}@tmp") {
+                        deleteDir()
+                    }
             }
         }
         stage('test2') {
