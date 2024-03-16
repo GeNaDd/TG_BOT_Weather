@@ -5,14 +5,16 @@ pipeline {
         NAME_IMAGE_DEV = 'gendevbydocker/gendevby_tg_bot_weather:latest'
     }
     stages {
-        stage('build dockerimage') {
+        stage('Build Docker Image') {
             steps {
-                echo "Hello World!"
+                echo "===== Docker Build ====="
+                sh 'docker build -t ${NAME_IMAGE_DEV} .'
             }
         }
-        stage('test') {
+        stage('Docker Push Image') {
             steps {
-                echo "Hello World!"
+                echo "===== Docker Pushing ====="
+                sh 'docker push gendevbydocker/gendevby_tg_bot_weather'
             }
         }
         stage('test2') {
