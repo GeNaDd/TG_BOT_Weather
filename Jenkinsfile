@@ -7,7 +7,8 @@ pipeline {
         NAME_CONTAINER_DEV = 'tgbotweatherGenDevBY_dev'
         TAG_IMAGE_PROD = 'prod'
     }
-    stages { 
+    stages('Build dockerfile') { 
+        agent any
             steps {
                 sh 'docker build -t ${NAME_IMAGE_DEV} .'    
             }
