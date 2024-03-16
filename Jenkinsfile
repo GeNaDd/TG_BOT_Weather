@@ -28,6 +28,8 @@ pipeline {
                     }
             }
         } 
+        stage('test devimage & push prodimage') {
+            agent any
              steps {
                 script {
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -44,6 +46,7 @@ pipeline {
                     sh 'docker system prune -af'
                 }
             } 
+        }
 }
     post { 
 
