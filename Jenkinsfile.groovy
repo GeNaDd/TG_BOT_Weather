@@ -32,7 +32,8 @@ pipeline {
                     }
             }
         }
-        stage('Test DockerIMAGE AND DockerPUSH') {
+        stage ('Test DockerIMAGE AND DockerPUSH') {
+            steps{
             script {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker pull ${NAME_IMAGE_DEV}'
@@ -42,6 +43,7 @@ pipeline {
                     sh 'docker stop -t 5 ${NAME_CONTAINER_DEV}'
                     sh 'docker system prune -af'
 
+            }
             }
         }
     }
