@@ -35,7 +35,7 @@ pipeline {
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                     sh 'docker pull ${NAME_IMAGE_DEV}'
                     sh 'docker run -d --name ${NAME_CONTAINER_DEV} -d --rm -p 8082:8082 ${NAME_IMAGE_DEV}'
-                    sh 'ping -c 5 localhost'
+                    sh 'ping -c 15 localhost'
 
                     sh 'curl http://localhost:8082'
 
