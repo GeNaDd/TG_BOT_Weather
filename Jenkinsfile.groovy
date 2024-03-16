@@ -40,7 +40,7 @@ pipeline {
                      docker.image("${NAME_IMAGE_DEV}").tag("${TAG_IMAGE_PROD}")
                      docker.image("${NAME_IMAGE_DEV}").push("${TAG_IMAGE_PROD}")
  
-                     sh 'docker stop -t 5 ${NAME_CONTAINER_DEV}'
+                
                      sh 'docker system prune -af'
                 }
             }
