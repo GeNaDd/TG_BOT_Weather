@@ -7,13 +7,13 @@ pipeline {
         NAME_CONTAINER_DEV = 'tgbotweatherGenDevBY_dev'
         TAG_IMAGE_PROD = 'prod'
      }
-    stages {
-        stage('build') {
-            steps {
-                sh 'docker build -t ${NAME_IMAGE_DEV} .'
-            }
-        }
-    }
+        stages {
+           stage('build') {
+               steps {
+                   sh 'docker build -t ${NAME_IMAGE_DEV} .'
+                }
+            }   
+         }    
 }
 
 
