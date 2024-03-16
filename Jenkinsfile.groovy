@@ -10,12 +10,10 @@ pipeline {
                 echo "Hello World!"
             }
         }
-    }
-     stages {
-         stage('build dockerimage2') {
+        stage('build dockerimage') {
              steps {
                  echo "Hello World!"
              }
          }
-     }
+    }
 }
