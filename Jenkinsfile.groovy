@@ -3,7 +3,7 @@ pipeline {
     environment {
         NAME_PROJECT = 'tgbotweatherGenDevBY'
         DOCKERHUB_CREDENTIALS = credentials('dockerhubjenkins')
-        NAME_IMAGE_DEV = 'gendevbydocker/gendevby_tg_bot_weather'
+        NAME_IMAGE_DEV = 'gendevbydocker/gendevby_tg_bot_weather:latest'
     }
     stages {
         stage('Build Docker Image') {
