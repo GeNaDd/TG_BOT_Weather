@@ -12,18 +12,6 @@ pipeline {
             }
         }
     }
-    stages ('push devimage') {
-            steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh 'docker push ${NAME_IMAGE_DEV}'
-                sh 'docker rmi ${NAME_IMAGE_DEV}'
-                //Удаляем рабочие директории проекта
-                cleanWs()
-                    dir("${env.WORKSPACE}@tmp") {
-                        deleteDir()
-                    }
-                }
-        }
 }
 
 
