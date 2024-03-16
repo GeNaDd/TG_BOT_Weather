@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     environment {
         NAME_PROJECT = 'tgbotweatherGenDevBY'
         DOCKERHUB_CREDENTIALS = credentials('gendevbydocker')
@@ -8,8 +8,6 @@ pipeline {
         TAG_IMAGE_PROD = 'prod'
     }
       stage('push devimage') {
-            agent { label 'awsssh'} 
-
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push ${NAME_IMAGE_DEV}'
@@ -58,6 +56,3 @@ pipeline {
             body: "Please go to ${BUILD_URL} and verify the build" 
         }
     }
-
-
-
