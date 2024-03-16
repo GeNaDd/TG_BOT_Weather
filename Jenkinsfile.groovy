@@ -12,6 +12,7 @@ pipeline {
         }
     }
     stages {
+        agent any
         stage('test'){
             echo "Hello World!"
         }
