@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "Hello World!"
+                sh 'docker build -t gendevbydocker/gendevby_tg_bot_weather:test .'
             }
         }
     }
