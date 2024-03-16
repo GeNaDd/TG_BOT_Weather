@@ -1,1 +1,1 @@
-CMD echo 'Hello world'
+FROM python:3.6
