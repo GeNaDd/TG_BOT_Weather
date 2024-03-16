@@ -11,7 +11,7 @@ pipeline {
             }
         }
     }
-  stages {
+    stages {
         stage('build dockerimage') {
             steps {
                 echo "Hello World!"
