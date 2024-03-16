@@ -8,14 +8,12 @@ pipeline {
         TAG_IMAGE_PROD = 'prod'
     }
     stages {
-
         stage('build devimage') { 
             agent any 
-            
             steps {
                 sh 'docker build -t ${NAME_IMAGE_DEV} .'    
             }
-        }
+         }
       stage('push devimage') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -26,7 +24,7 @@ pipeline {
                     dir("${env.WORKSPACE}@tmp") {
                         deleteDir()
                     }
-            }
+                }
         } 
         stage('test devimage & push prodimage') {
             agent any
@@ -35,7 +33,7 @@ pipeline {
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                     sh 'docker pull ${NAME_IMAGE_DEV}'
                     sh 'docker run -d --name ${NAME_CONTAINER_DEV} -d --rm -p 8082:8082 ${NAME_IMAGE_DEV}'
-                    sh 'ping -c 15 localhost'
+                    sh 'ping -c 5 localhost'
 
                     sh 'curl http://localhost:8082'
 
