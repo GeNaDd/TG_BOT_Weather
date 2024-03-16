@@ -10,10 +10,5 @@ pipeline {
                 echo "Hello World!"
             }
         }
-        stage('build dockerimage') {
-             steps {
-                 echo "Hello World!"
-             }
-         }
     }
 }
