@@ -11,12 +11,12 @@ pipeline {
             }
         }
     }
-      stages {
-          stage('push devimage'){
-              steps{
-                  echo "Test"
-              }
-          }
-      }  
+    stages {
+        stage('build dockerimage') {
+            steps {
+                echo "Hello World!"
+            }
+        }
+    }
 }
 
