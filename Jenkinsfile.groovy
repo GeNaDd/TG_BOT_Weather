@@ -9,10 +9,9 @@ pipeline {
             steps {
                 echo "Hello World!"
             }
-            stage('Test') {
-                steps {
-                 echo "Hello World!"
-                }
+            stage('build test') {
+            steps {
+                echo "Hello World!"
             }
         }
     }
