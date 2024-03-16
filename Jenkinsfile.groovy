@@ -14,7 +14,7 @@ pipeline {
         stage('Docker Push Image') {
             steps {
                 echo "===== Docker Pushing ====="
-                sh 'docker push gendevbydocker/gendevby_tg_bot_weather'
+                sh 'docker push ${NAME_IMAGE_DEV}'
             }
         }
         stage('test2') {
