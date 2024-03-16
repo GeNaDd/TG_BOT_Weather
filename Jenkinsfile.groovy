@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('build dockerimage') {
             steps {
-                sh 'docker build -t $NAME_IMAGE_DEV .'
+               echo "Hello World!"
             }
         }
     }
