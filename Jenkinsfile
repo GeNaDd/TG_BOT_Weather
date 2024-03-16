@@ -47,25 +47,6 @@ pipeline {
                 }
             } 
         }
-}
-    post { 
-
-        success {
-            mail to: 'gdavydchik@mail.ru',
-            subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) was successfully completed!",
-            body: "Please go to ${BUILD_URL} and verify the build"      
-        }
-
-        failure {
-            mail to: 'gdavydchik@mail.ru',
-            subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) ended unsuccessfully!",
-            body: "Please go to ${BUILD_URL} and verify the build"              
-        }
-
-        aborted {
-            mail to: 'gdavydchik@mail.ru',
-            subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) was aborted",
-            body: "Please go to ${BUILD_URL} and verify the build" 
-        }
     }
 }
+
