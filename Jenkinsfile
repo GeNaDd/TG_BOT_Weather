@@ -3,13 +3,13 @@ pipeline {
     environment{
         
     }
-    stages {
-        stage('build') {
-            steps {
-                echo "Hello World!"
-            }
-        }
-    }
+      stages {
+          stage('build') {
+              steps {
+                  echo "Hello World!"
+              }
+          }
+      }  
 }
 
 
