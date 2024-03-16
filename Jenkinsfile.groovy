@@ -7,7 +7,14 @@ pipeline {
     stages {
         stage('build dockerimage') {
             steps {
-               echo "Hello World!"
+                echo "Hello World!"
+            }
+        }
+    }
+    stages {
+        stage('push devimage'){
+            steps{
+                echo "Test"
             }
         }
     }
