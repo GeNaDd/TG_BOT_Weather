@@ -14,6 +14,7 @@ pipeline {
         stage('Docker Push Image') {
             steps {
                 echo "===== Docker Pushing ====="
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push ${NAME_IMAGE_DEV}'
             }
         }
