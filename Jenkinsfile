@@ -7,19 +7,6 @@ pipeline {
         NAME_CONTAINER_DEV = 'tgbotweatherGenDevBY_dev'
         TAG_IMAGE_PROD = 'prod'
     }
-     stages {
-
-        stage('build devimage') { 
-            agent { 
-                label 'awsssh'
-            }   
-            
-            steps {
-                sh 'docker build -t ${NAME_IMAGE_DEV} .'    
-            }
-        }
-
-
       stage('push devimage') {
             agent { label 'awsssh'} 
 
@@ -73,4 +60,5 @@ pipeline {
             body: "Please go to ${BUILD_URL} and verify the build" 
         }
     }
+
 
