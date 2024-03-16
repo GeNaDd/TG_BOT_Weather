@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         NAME_PROJECT = 'tgbotweatherGenDevBY'
-        DOCKERHUB_CREDENTIALS = credentials('gendevbydocker')
+        DOCKERHUB_CREDENTIALS = test'test'
         NAME_IMAGE_DEV = 'gendevbydocker/gendevby_tg_bot_weather:latest'
     }
     stages {
