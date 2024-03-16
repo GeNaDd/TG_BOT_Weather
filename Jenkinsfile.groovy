@@ -2,14 +2,12 @@ pipeline {
     agent any
     environment {
         NAME_PROJECT = 'tgbotweatherGenDevBY'
-        DOCKERHUB_CREDENTIALS = credentials('gendevbydocker')
-        NAME_IMAGE_DEV = 'gendevbydocker/gendevby_tg_bot_weather'
     }
     stages {
         stage('Build Docker Image') {
             steps {
                 echo "===== Docker Build ====="
-                sh 'docker build -t ${NAME_IMAGE_DEV} .'
+                sh 'docker build -t gendevbydocker/gendevby_tg_bot_weather .'
             }
         }
         stage('Login DockerHUB') {
@@ -21,7 +19,7 @@ pipeline {
         stage('Docker Push Image') {
             steps {
                 echo "===== Docker Pushing ====="
-                sh 'docker push ${NAME_IMAGE_DEV}'
+                sh 'docker push gendevbydocker/gendevby_tg_bot_weather'
             }
         }
         stage('test2') {
